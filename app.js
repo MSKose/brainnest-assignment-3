@@ -22,21 +22,21 @@
 
 function game() {
     let arr = ['Rock', 'Paper', 'Scissors']
-    let playerCount = 0
-    let computerCount = 0 
+    let playerCount = 0;
+    let computerCount = 0;
     for (let i=1; i<=5; i++) {
         const playerSelection = prompt("Type your choice");
-        let player = playerSelection.toLowerCase()          // making sure to have case insensitive inputs
-        let computer = arr[Math.floor(Math.random() * 3)]   // computer chosing randomly from arr
+        let player = playerSelection.toLowerCase();          // making sure to have case insensitive inputs
+        let computer = arr[Math.floor(Math.random() * 3)];   // computer chosing randomly from arr
         if (player === (computer).toLowerCase()) {
-            playerCount++
-            computerCount++
-            console.log('Tie')
+            playerCount++;
+            computerCount++;
+            console.log('Tie');
         } else if ((player === 'rock' && (computer) === 'Scissors') || (player === 'paper' && (computer) === 'Rock') || (player === 'scissors' && (computer) === 'Paper')) {
-            playerCount++
+            playerCount++;
             console.log(`You win, computer's choice was ${computer}`);
         } else  {
-            computerCount++
+            computerCount++;
             console.log(`You lose, computer's choice was ${computer}`);
         } 
     }
