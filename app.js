@@ -20,26 +20,35 @@
 // const computerSelection = computerPlay()
 // console.log(playRound(playerSelection, computerSelection))
 
-function game() {
+function computerPlay() {
     let arr = ['Rock', 'Paper', 'Scissors']
-    let playerCount = 0;
-    let computerCount = 0;
-    for (let i=1; i<=5; i++) {
-        const playerSelection = prompt("Type your choice");
-        let player = playerSelection.toLowerCase();          // making sure to have case insensitive inputs
-        let computer = arr[Math.floor(Math.random() * 3)];   // computer chosing randomly from arr
-        if (player === (computer).toLowerCase()) {
-            playerCount++;
-            computerCount++;
-            console.log('Tie');
-        } else if ((player === 'rock' && (computer) === 'Scissors') || (player === 'paper' && (computer) === 'Rock') || (player === 'scissors' && (computer) === 'Paper')) {
-            playerCount++;
-            console.log(`You win, computer's choice was ${computer}`);
-        } else  {
-            computerCount++;
-            console.log(`You lose, computer's choice was ${computer}`);
-        } 
-    }
-    return playerCount > computerCount ? `You won` : `You lost`
+    let computer = arr[Math.floor(Math.random() * 3)]
+    return computer
+}
+
+function playRound() {
+  let a = prompt("Type your choice");
+  let player = a.toLowerCase()
+  return player
+}
+
+function game() {
+  let playerCount = 0;
+  let computerCount = 0;
+  for (let i=1; i<=5; i++) {    
+      let p = playRound() 
+      let c = computerPlay() 
+      if (p === (c).toLowerCase()) {
+          console.log('Tie');
+      } else if ((p === 'rock' && (c) === 'Scissors') || (p === 'paper' && (c) === 'Rock') || (p === 'scissors' && (c) === 'Paper')) {
+          playerCount++;
+          console.log(`You win, computer's choice was ${c}`);
+      } else  {
+          computerCount++;
+          console.log(`You lose, computer's choice was ${c}`);
+      } 
+  }
+  return playerCount === computerCount ? `Tie` : playerCount > computerCount ? `You won` : `You lost`
 }
 console.log(game());
+
